@@ -68,13 +68,14 @@ def calc(arr_l):
         st.append(fd[el].foo(st)) if el in fn else st.append(el)    # eval foo or push operand in stack
     return int(st[0]) if st[0]%1==0 else st[0]
 
-#print(calc(converter(strip(input('V: ')))))
-ex = ('(4 357 + 38 417) · 201 – 44 + 59 · (1128 – 699)', '261 · 309 + 61542 : 4734 - 2 · 331 - 79497',
+if __name__ == "__main__":
+    #print(calc(converter(strip(input('V: ')))))
+    ex = ('(4 357 + 38 417) · 201 – 44 + 59 · (1128 – 699)', '261 · 309 + 61542 : 4734 - 2 · 331 - 79497',
         '( 52 ⎯ 34) : 2 * 8 + 7 * 3 ⎯ 13 + ( 64 ⎯ 44 ) : 4', '256 : 32 : 4 · 2 + 256 : (32 : 4 · 2) + 256 : (32 : 4) · 2',
         "625^(-2,25) · 25^(-(2)/(3)) · 125^((25)/(9))", "(3^((5)/(7)) · 5^(-(5)/(7)))/(15^(-1) · 2^((2)/(7)))^(-7)")
-for s in ex:
-    l = strip(s)
-    print(l)
-    l = converter(l)
-    print(', '.join([str(int(c) if type(c) is float and c%1==0 else c) for c in l]))
-    print(calc(l))
+    for s in ex:
+        l = strip(s)
+        print(l)
+        l = converter(l)
+        print(', '.join([str(int(c) if type(c) is float and c%1==0 else c) for c in l]))
+        print(calc(l))
